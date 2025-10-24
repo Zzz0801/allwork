@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: #b31491;
+    --primary-light: #ea3bc4;
+    --dark:#030003;
+    --light:#f4f4f4;
+    --danger:#fa5252;
+    --success:#4caf50;
+    --border: #e9ecef;
+    --gray:#6c757d;
+}
+body{
+    background-color:#f1f3f5;
+    font-family:sans-serif;
+    min-height: 100vh; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--dark);
+
+}
+.app{
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+}
+header{
+    background-color: var(--primary);
+    color: #fff;
+    padding: 20px 25px;
+}
+header h1{
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+header p{
+    font-size: 0.8rem;
+    opacity:0.9;
+}
+.todo-input{
+    padding:20px 25px;
+    display: flex;
+    gap: 10px;
+    background-color: var(--light);
+    border-bottom: 1px solid var(--border);
+}
+.todo-input input{
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+.todo-input input:focus{
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(179,20,145,0.3);
+}
+
+.todo-input button{
+    border:none;
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 40px;
+    height: 40px;
+}
+.todo-input button:hover{
+    background-color: var(--primary-light);
+}
+.filters{
+    padding: 15px 25px;
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.filters:hover{
+    color: var(--primary);
+    cursor: pointer;
+}
+.filters .active{
+    color: var(--primary);
+    font-weight: 500;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 2px;
+}
+.todos-container{
+    padding: 15px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.empty-state{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    color: var(--gray);
+}
+.empty-state i{
+    font-size: 3rem;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.hidden{
+    display: none;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-top: 1px solid var(--border);
+    background-color: var(--light);
+    font-size: 0.9rem;
+}
+#item-left{
+    color: var(--gray);
+}
+#clear-completed{
+    border: none;
+    background: none;
+    color: var(--gray);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+#clear-completed:hover{
+    color: var(--dark);
+    text-decoration: underline;
+}
+#todos-list{
+    list-style-type: none;
+}
+.todo-item{
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    transition: all 0.3s;
+}
+.todo-item:hover{
+    background-color:var(--light)  ; 
+}
+.checkbox-container{
+    margin-right: 15px;
+}
+.todo-checkbox{
+    opacity: 0;
+    position:absolute;
+}
+.checkmark{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position:relative;
+
+}
+.todo-checkbox:checked + .checkmark{
+    background-color: var(--success);
+    border-color: var(--success);
+}
+.todo-checkbox:checked + .checkmark::after{
+    content: '✔';
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.todo-item-text{
+    flex:1;
+    font-size: 1rem;
+    transition: all 0.2s;
+
+}
+.todo-item-completed .todo-item-text{
+    text-decoration: line-through;
+    color: var(--gray);
+}
+
+.delete-btn{
+    border: none;
+    background: none;
+    color: var(--gray);
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.todo-item:hover .delete-btn{
+    opacity: 1;
+}
+.delete-btn:hover{
+    color: var(--dark);
+}
